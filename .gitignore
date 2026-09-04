@@ -1,0 +1,57 @@
+## .NET Core
+bin/
+obj/
+out/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider / JetBrains
+.idea/
+*.sln.iml
+
+## VS Code
+.vscode/
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww]in32/
+[Aa]rm/
+[Aa]rm64/
+[Bb]uild/
+
+## NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+## Base de datos local (SQLite)
+*.db
+*.db-shm
+*.db-wal
+
+## Secrets y configuración local
+appsettings.Development.json
+appsettings.*.local.json
+*.env
+
+## Logs
+*.log
+
+## OS generado (Windows/Mac)
+.DS_Store
+Thumbs.db
+
+## Publicación
+publish/
+PublishScripts/
