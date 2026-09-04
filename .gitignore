@@ -3,6 +3,9 @@ bin/
 obj/
 out/
 
+## EF Core migrations
+Migrations/
+
 ## Visual Studio
 .vs/
 *.user
