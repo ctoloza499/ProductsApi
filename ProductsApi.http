@@ -1,6 +1,25 @@
 @ProductsApi_HostAddress = http://localhost:5270
 
-GET {{ProductsApi_HostAddress}}/weatherforecast/
+### 1. Crear un nuevo producto
+POST {{ProductsApi_HostAddress}}/api/products
+Content-Type: application/json
+{
+  "name": "Teclado Mecánico",
+  "description": "Switch Brown RGB",
+  "price": 79.99,
+  "initialStock": 15
+}
+### 2. Listar productos paginados
+GET {{Host}}/api/products?page=1&pageSize=10
 Accept: application/json
+### 3. Obtener un producto por ID
+GET {{Host}}/api/products/1
+Accept: application/json
+### 4. Modificar stock (+5 unidades o -3 unidades)
+PATCH {{Host}}/api/products/1/stock
+Content-Type: application/json
+{
+  "quantity": 5
+}
 
 ###
