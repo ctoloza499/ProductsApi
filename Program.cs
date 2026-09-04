@@ -23,8 +23,7 @@ builder.Services.AddSwaggerGen(c =>
 
 //Add database context
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")
-        ?? "Data Source=products.db"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //Dependency injection: each interface -> its concrete implementation
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
