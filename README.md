@@ -11,13 +11,14 @@ API REST para gestión de catálogo de productos y stock, construida con .NET 10
 
 ## Cómo correr localmente
 
-\```bash
+```bash
 git clone https://github.com/ctoloza499/ProductsApi.git
 cd ProductsApi
 dotnet restore
 dotnet ef database update
 dotnet run
-\```
+```
+
 Luego abre `http://localhost:5270/swagger`
 
 ## Endpoints
