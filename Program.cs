@@ -39,6 +39,9 @@ using (var scope = app.Services.CreateScope())
     db.Database.Migrate();
 }
 
+// Middleware for global error handling
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+
 //Configure the HTTP request pipeline.
 // if (app.Environment.IsDevelopment())
 // {
@@ -52,5 +55,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGet("/", () => Results.Redirect("/swagger"));
 
 app.Run();

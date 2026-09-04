@@ -20,7 +20,7 @@ namespace ProductsApi.Controllers
         public async Task<IActionResult> Create([FromBody] CreateProductRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.Name))
-                return BadRequest(new { error = "El nombre es obligatorio." });
+                return BadRequest(new { error = "ValidationError", message = "El nombre es obligatorio." });
 
             var product = await _service.CreateAsync(request);
             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);

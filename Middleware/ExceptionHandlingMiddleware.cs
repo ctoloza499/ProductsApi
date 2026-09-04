@@ -21,18 +21,24 @@ namespace ProductsApi.Middleware
             }
             catch (Exception ex)
             {
-                var (statusCode, message) = ex switch
+                var (statusCode, errorType, message) = ex switch
                 {
-                    NotFoundException => (HttpStatusCode.NotFound, ex.Message),
-                    BusinessRuleException => (HttpStatusCode.BadRequest, ex.Message),
-                    InvalidOperationException => (HttpStatusCode.BadRequest, ex.Message),
-                    _ => (HttpStatusCode.InternalServerError, "Ocurrió un error inesperado.")
+                    NotFoundException => (HttpStatusCode.NotFound, "NotFound", ex.Message),
+                    BusinessRuleException => (HttpStatusCode.BadRequest, "BusinessRuleError", ex.Message),
+                    InvalidOperationException => (HttpStatusCode.BadRequest, "InvalidOperation", ex.Message),
+                    _ => (HttpStatusCode.InternalServerError, "InternalServerError", "Ocurrió un error inesperado.")
                 };
 
                 context.Response.ContentType = "application/json";
                 context.Response.StatusCode = (int)statusCode;
 
-                var result = JsonSerializer.Serialize(new { error = message });
+                var response = new 
+                { 
+                    error = errorType, 
+                    message = message 
+                };
+
+                var result = JsonSerializer.Serialize(response);
                 await context.Response.WriteAsync(result);
             }
         }
