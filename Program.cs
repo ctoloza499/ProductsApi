@@ -42,12 +42,14 @@ using (var scope = app.Services.CreateScope())
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 //Configure the HTTP request pipeline.
-// if (app.Environment.IsDevelopment())
-// {
-app.MapOpenApi();
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+}
+
+//swagger docs ui
 app.UseSwagger();
 app.UseSwaggerUI();
-// }
 
 app.UseHttpsRedirection();
 

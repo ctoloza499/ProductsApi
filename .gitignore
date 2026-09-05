@@ -44,7 +44,7 @@ x86/
 *.db-wal
 
 ## Secrets y configuración local
-# appsettings.Development.json
+appsettings.Development.json
 appsettings.*.local.json
 *.env
 
