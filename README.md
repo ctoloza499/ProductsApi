@@ -37,21 +37,22 @@ dotnet ef database update
 dotnet run
 ```
 
-*Nota: La API también aplica automáticamente las migraciones pendientes al iniciar (`db.Database.Migrate()` en `Program.cs`).*
+_Nota: La API también aplica automáticamente las migraciones pendientes al iniciar (`db.Database.Migrate()` en `Program.cs`)._
 
 ### 3. Documentación interactiva
 
 Una vez iniciada la aplicación, accede a:
+
 - **Swagger UI**: `http://localhost:5270/swagger` (la ruta raíz `http://localhost:5270/` redirige automáticamente a Swagger).
 
 ## Endpoints
 
-| Método | Ruta                             | Descripción        |
-| ------ | -------------------------------- | ------------------ |
-| POST   | `/api/products`                  | Crea un producto   |
-| GET    | `/api/products/{id}`             | Consulta por ID    |
-| GET    | `/api/products?page=1&pageSize=10` | Lista paginada   |
-| PATCH  | `/api/products/{id}/stock`       | Ajusta stock (+/-) |
+| Método | Ruta                               | Descripción        |
+| ------ | ---------------------------------- | ------------------ |
+| POST   | `/api/products`                    | Crea un producto   |
+| GET    | `/api/products/{id}`               | Consulta por ID    |
+| GET    | `/api/products?page=1&pageSize=10` | Lista paginada     |
+| PATCH  | `/api/products/{id}/stock`         | Ajusta stock (+/-) |
 
 ## Estructura de errores
 
@@ -63,3 +64,8 @@ Todas las respuestas de error y validaciones devuelven un formato uniforme:
   "message": "Producto con id 99 no encontrado."
 }
 ```
+
+## Despliegue
+
+URL pública: https://productsapi-y68w.onrender.com/swagger
+(Nota: el plan free de Render puede tardar ~30s en el primer request tras inactividad)

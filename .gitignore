@@ -3,7 +3,6 @@ bin/
 obj/
 out/
 
-
 ## Visual Studio
 .vs/
 *.user
